@@ -14,7 +14,8 @@
 </head>
 
 <body>
-  <div class="min-h-screen bg-white flex flex-col md:flex-row justify-center items-center gap-10">
+  <div
+    class="min-h-screen max-w-[1400px] mx-auto bg-white flex flex-col p-4 md:grid md:grid-cols-3 justify-center items-center gap-6">
     <div
       class="max-w-[450px] w-full px-10 bg-white border min-h-[390px] h-full border-black border-opacity-30 shadow-xl rounded-2xl py-10">
       <h1 id="colorChange" class="text-center text-6xl pb-4 font-semibold">Count <span id="textadd"></span></h1>
@@ -62,9 +63,26 @@
           class="mt-8 py-3 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none hover:bg-blue-700 w-full">0
         </button>
       </div>
+    </div>
+    <div
+      class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+      <h1 class="text-center text-6xl pb-4 font-semibold">Hover<span></span></h1>
+      <button id="hover" class="mt-8 py-3 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none  w-full">
+        Hover In Out
+      </button>
 
     </div>
   </div>
+  </div>
+  <script>
+    let hoverbtn = document.getElementById("hover");
+    hoverbtn.addEventListener("mouseover", function () {
+      hoverbtn.style.backgroundColor = "blue"
+    })
+    hoverbtn.addEventListener("mouseout", function () {
+      hoverbtn.style.backgroundColor = "black"
+    })
+  </script>
   <script>
     let a = document.getElementById("firstvalue");
     let b = document.getElementById("secondvalue");

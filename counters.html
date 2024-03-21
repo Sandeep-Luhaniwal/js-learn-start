@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
         <div
             class="max-w-[450px] min-h-[390px] h-full relative w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
@@ -52,12 +52,13 @@
             if (!arry.includes(count)) {
                 arry.push(count);
                 print.innerHTML = arry.map((obj) => obj)
+                counter.innerHTML = 0;
+                count = 0;
             } else {
                 error.style.display = "block";
                 repeatNumber.innerHTML = count;
             }
-            counter.innerHTML = 0;
-            count = 0;
+
             console.log(arry);
         })
     </script>

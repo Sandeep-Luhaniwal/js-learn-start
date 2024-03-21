@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px red inset !important;
+    -webkit-text-fill-color: white !important;
+
+}
+
+#preloader {
+    position: fixed;
+    z-index: 100;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    left: 0px;
+    right: 0px;
+}

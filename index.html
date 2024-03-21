@@ -72,8 +72,124 @@
       </button>
 
     </div>
+    <div
+      class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+      <p class="bg-blue-700 rounded-md text-2xl h-12 text-white p-2"><span id="firstdigit">0</span>
+        <span id="sign"></span>
+        <span id="seconddigit"></span>
+        <span id="value"></span>
+      </p>
+      <div class="grid grid-cols-4 gap-2 mt-2">
+        <p
+          class="p-2 one bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          1</p>
+        <p
+          class="p-2 two bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          2</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          3</p>
+        <p
+          class="p-2 plus bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          +</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          4</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          5</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          6</p>
+        <p
+          class="p-2 nagtive bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          -</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          7</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          8</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          9</p>
+        <p
+          class="p-2 multipul bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          *</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          0</p>
+        <p
+          class="p-2 bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          zero</p>
+        <p
+          class="p-2 equal bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          =</p>
+        <p
+          class="p-2 divied bg-blue-700 hover:bg-black duration-300 cursor-pointer rounded-md text-2xl text-center text-white">
+          /</p>
+      </div>
+    </div>
+
   </div>
-  </div>
+  <script>
+    let one = document.querySelector(".one");
+    let two = document.querySelector(".two");
+    let equal = document.querySelector(".equal");
+    let digit = document.getElementById("firstdigit");
+    let seconddigit = document.getElementById("seconddigit");
+    let value = document.getElementById("value");
+    let oneNum = 0;
+    let twoNum = 0;
+    one.addEventListener("click", function () {
+      oneNum = oneNum + "1";
+      digit.innerHTML = oneNum;
+
+    })
+    let plus = document.querySelector(".plus");
+    let nagtive = document.querySelector(".nagtive");
+    let multipul = document.querySelector(".multipul");
+    let divied = document.querySelector(".divied");
+    let sign = document.getElementById("sign");
+    plus.addEventListener("click", function () {
+      sign.innerHTML = "+";
+    })
+    nagtive.addEventListener("click", function () {
+      sign.innerHTML = "-";
+    })
+    multipul.addEventListener("click", function () {
+      sign.innerHTML = "*";
+    })
+    divied.addEventListener("click", function () {
+      sign.innerHTML = "/";
+    })
+    two.addEventListener("click", function () {
+      twoNum = twoNum + "2";
+      seconddigit.innerHTML = twoNum;
+
+    })
+    equal.addEventListener("click", function () {
+      let sumA = parseInt(oneNum);
+      let sumB = parseInt(twoNum);
+      let valueget = sign.innerHTML;
+      if (valueget === "+") {
+        let showvalue = sumA + sumB;
+        value.innerHTML = " = " + showvalue;
+      }
+      if (valueget === "-") {
+        let showvalue = sumA - sumB;
+        value.innerHTML = " = " + showvalue;
+      }
+      if (valueget === "*") {
+        let showvalue = sumA * sumB;
+        value.innerHTML = " = " + showvalue;
+      }
+      if (valueget === "/") {
+        let showvalue = sumA / sumB;
+        value.innerHTML = " = " + showvalue;
+      }
+    })
+  </script>
   <script>
     let hoverbtn = document.getElementById("hover");
     hoverbtn.addEventListener("mouseover", function () {

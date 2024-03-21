@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div id="preloader"></div>
+  <!-- <div id="preloader"></div> -->
   <div
     class="min-h-screen max-w-[1400px] mx-auto bg-white flex flex-col p-4 md:grid md:grid-cols-3 justify-center items-center gap-6">
     <div
@@ -114,7 +114,59 @@
 
       </div>
     </div>
+    <div
+      class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-5">
+      <h1 class="text-center text-5xl pb-4 font-semibold">Simple Select</h1>
+      <button id="select"
+        class="mt-4 py-2 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none text-center w-full">
+        onclick
+      </button>
+      <div id="opction" class="overflow-hidden max-h-0 duration-500">
+        <button id="blue"
+          class="mt-1 py-2 text-3xl text-white bg-blue-600 rounded-xl duration-300 leading-none text-center w-full">
+          Blue
+        </button>
+        <button id="black"
+          class="mt-1 py-2 text-3xl text-white bg-black rounded-xl duration-300 leading-none text-center w-full">
+          Black
+        </button>
+        <button id="gray"
+          class="mt-1 py-2 text-3xl text-white bg-gray-600 rounded-xl duration-300 leading-none text-center w-full">
+          Gray
+        </button>
+      </div>
+
+    </div>
   </div>
+
+  <script>
+
+    let select = document.getElementById("select");
+    let opction = document.getElementById("opction");
+    let blue = document.getElementById("blue");
+    let gray = document.getElementById("gray");
+    let black = document.getElementById("black");
+    select.addEventListener("click", function () {
+      opction.classList.toggle("max-h-[200px]");
+    })
+    blue.addEventListener("click", function () {
+      select.innerHTML = blue.innerHTML;
+      opction.classList.toggle("max-h-[200px]");
+    })
+    black.addEventListener("click", function () {
+      select.innerHTML = black.innerHTML;
+      opction.classList.toggle("max-h-[200px]");
+    })
+    gray.addEventListener("click", function () {
+      select.innerHTML = gray.innerHTML;
+      opction.classList.toggle("max-h-[200px]");
+    })
+
+  </script>
+
+
+
+
   <script>
     setTimeout(function () {
       preloader.style.display = "none";

@@ -9,13 +9,60 @@
 </head>
 
 <body>
+
     <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
         <div
-            class="max-w-[450px] min-h-[390px] h-full relative w-full px-10 bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+            class="max-w-[450px] min-h-[390px] h-full relative w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+            <p id="error"
+                class="text-xl hidden number absolute top-4 start-1/2 -translate-x-1/2 text-red-700 leading-none text-center font-semibold">
+                Already Number <span id="repeatNumber"></span>
+            </p>
             <h1 class="text-center text-6xl pb-4 font-semibold">Arry Counter</h1>
-            <p>hello</p>
+            <p id="counter" class="text-[60px] number leading-none text-center font-semibold">0</p>
+            <div class="flex gap-4">
+                <button id="numbercount"
+                    class="mt-8 count_down py-3 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none hover:bg-blue-700 w-full">
+                    Number
+                </button>
+                <button id="save"
+                    class="mt-8 count_down py-3 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none hover:bg-blue-700 w-full">
+                    Save
+                </button>
+            </div>
+            <p id="print" class="text-[60px] hidden pt-4 number leading-none text-center font-semibold">0</p>
+
         </div>
     </div>
+    <script>
+        let num = document.getElementById("numbercount");
+        let save = document.getElementById("save");
+        let counter = document.getElementById("counter");
+        let print = document.getElementById("print");
+        let error = document.getElementById("error");
+        let repeatNumber = document.getElementById("repeatNumber");
+        count = 0;
+        let arry = [];
+        num.addEventListener("click", function () {
+            count = count + 1;
+            counter.innerHTML = count;
+            error.style.display = "none";
+        })
+        save.addEventListener("click", function () {
+            print.style.display = "block";
+            if (!arry.includes(count)) {
+                arry.push(count);
+                print.innerHTML = arry.map((obj) => obj)
+                counter.innerHTML = 0;
+                count = 0;
+            } else {
+                error.style.display = "block";
+                repeatNumber.innerHTML = count;
+            }
+
+            console.log(arry);
+        })
+    </script>
+
     <script type="module" src="/main.js"></script>
 </body>
 

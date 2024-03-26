@@ -7,6 +7,7 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, "index.html"),
                 counters: resolve(__dirname, "counters.html"),
+                accordion: resolve(__dirname, "accordion.html"),
             },
         },
     },

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Learn</title>
+</head>
+
+<body>
+
+    <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
+        <div
+            class="max-w-[450px] min-h-[390px] h-full relative w-full px-7 bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+
+            <h1 class="text-center text-6xl pb-4 font-semibold">Tab</h1>
+            <div class="flex gap-4 mt-6">
+                <p id="one"
+                    class="py-2 text-2xl text white cursor-pointer bg-blue-600 rounded-lg text-white font-semibold px-4">
+                    Tab-1
+                </p>
+                <p id="two"
+                    class="py-2 text-2xl text white cursor-pointer bg-blue-600 rounded-lg text-white font-semibold px-4">
+                    Tab-2
+                </p>
+                <p id="three"
+                    class="py-2 text-2xl text white cursor-pointer bg-blue-600 rounded-lg text-white font-semibold px-4">
+                    Tab-3
+                </p>
+            </div>
+            <div class="pt-4">
+                <p id="first" class="block">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe impedit
+                    exercitationem nihil quidem
+                    molestiae ullam id laborum ratione sapiente, ab temporibus ipsam hic minima consectetur odit illum
+                    consequuntur quibusdam ad?
+                </p>
+                <p id="second" class="hidden">Saepe impedit exercitationem nihil quidem
+                    molestiae ullam id laborum ratione sapiente, ab temporibus ipsam hic minima consectetur odit illum
+                    consequuntur quibusdam ad?
+                </p>
+                <p id="third" class="hidden">ABC elit. Saepe impedit exercitationem nihil quidem
+                    molestiae ullam id laborum ratione sapiente, ab temporibus ipsam hic minima consectetur odit illum
+                    consequuntur quibusdam ad?
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let first = document.getElementById("first");
+        let second = document.getElementById("second");
+        let third = document.getElementById("third");
+        one.addEventListener("click", function () {
+            first.classList.remove("hidden");
+            second.classList.add("hidden");
+            third.classList.add("hidden");
+
+        })
+        two.addEventListener("click", function () {
+            first.classList.add("hidden");
+            third.classList.add("hidden");
+            second.classList.remove("hidden");
+        })
+        three.addEventListener("click", function () {
+            first.classList.add("hidden");
+            second.classList.add("hidden");
+            third.classList.remove("hidden");
+        })
+    </script>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

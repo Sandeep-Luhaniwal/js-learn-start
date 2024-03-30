@@ -17,6 +17,23 @@
   <!-- <div id="preloader"></div> -->
   <div
     class="min-h-screen max-w-[1400px] mx-auto bg-white flex flex-col p-4 md:grid md:grid-cols-3 justify-center items-center gap-6">
+    <!-- COUNT JS -->
+    <div
+      class="max-w-[450px] w-full px-10 bg-white border min-h-[390px] h-full border-black border-opacity-30 shadow-xl rounded-2xl py-10 flex flex-col justify-center items-center">
+      <h1 class="text-center text-6xl pb-4 font-semibold">Side Bar</h1>
+      <button id="buttonsidebar" class="px-3 py-2 bg-blue-600 text-white text-2xl md:text-3xl rounded-lg mt-10">Sidebar
+        Open</button>
+      <div id="sidebar"
+        class="fixed top-0 duration-500 -start-full min-h-screen bg-black max-w-[300px] w-full flex flex-col gap-5 pe-5 ps-8">
+        <button id="closesidebar"
+          class="text-white bg-blue-600 m-5 py-2 px-10 rounded-xl text-3xl font-medium text-center">Close</button>
+        <a class="text-white underline text-3xl" href="/tab">Js Tab</a>
+        <a class="text-white underline text-3xl" href="/calculator">Calculator</a>
+        <a class="text-white underline text-3xl" href="/counters">Counters</a>
+        <a class="text-white underline text-3xl" href="/accordion">Accordion</a>
+      </div>
+    </div>
+    <!-- COUNT JS -->
     <div
       class="max-w-[450px] w-full px-10 bg-white border min-h-[390px] h-full border-black border-opacity-30 shadow-xl rounded-2xl py-10">
       <h1 id="colorChange" class="text-center text-6xl pb-4 font-semibold">Count <span id="textadd"></span></h1>
@@ -29,6 +46,7 @@
         Subtract
         Number</button>
     </div>
+    <!-- MIX COUNT -->
     <div
       class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
       <h1 class="text-center text-6xl pb-4 font-semibold">Mix Count <span></span></h1>
@@ -39,6 +57,7 @@
       </button>
 
     </div>
+    <!-- ADD NUMBER -->
     <div
       class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
       <h1 class="text-center text-6xl pb-4 font-semibold">Add Number<span></span></h1>
@@ -65,6 +84,7 @@
         </button>
       </div>
     </div>
+    <!-- MOUSE ENTER HOVER -->
     <div
       class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
       <h1 class="text-center text-6xl pb-4 font-semibold">Hover<span></span></h1>
@@ -73,6 +93,7 @@
       </button>
 
     </div>
+    <!-- CALCULATOR -->
     <div
       class="max-w-[450px] min-h-[390px] h-full w-full px-6 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
       <div class="grid grid-cols-3 gap-2">
@@ -114,6 +135,7 @@
 
       </div>
     </div>
+    <!-- SIMPLE JS SELECT -->
     <div
       class="max-w-[450px] min-h-[390px] h-full w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-5">
       <h1 class="text-center text-5xl pb-4 font-semibold">Simple Js Select</h1>
@@ -139,6 +161,18 @@
     </div>
   </div>
 
+  <script>
+    let buttonsidebar = document.getElementById("buttonsidebar");
+    let sidebar = document.getElementById("sidebar");
+    let closesidebar = document.getElementById("closesidebar");
+    buttonsidebar.addEventListener("click", function () {
+      sidebar.style.left = "0";
+    })
+    closesidebar.addEventListener("click", function () {
+      sidebar.style.left = "-320px";
+    })
+
+  </script>
   <script>
 
     let select = document.getElementById("select");

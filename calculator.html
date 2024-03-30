@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Learn</title>
+</head>
+
+<body>
+
+    <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
+        <div
+            class="max-w-[450px] min-h-[450px] h-full relative w-full px-6 bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-7">
+            <h1 class="text-center text-6xl pb-4 font-semibold">Calculator</h1>
+            <div class="flex gap-3 mt-7 w-full">
+                <p id="allNumber" class="text-white  w-full bg-blue-600 p-2 leading-none text-2xl rounded-md h-10">
+                </p>
+                <p id="clear"
+                    class="text-white bg-blue-600 text-center px-4 py-2 leading-none text-2xl rounded-md cursor-pointer">
+                    AC
+                </p>
+            </div>
+            <div class="grid grid-cols-4 gap-4 mt-4">
+                <p onclick="cal(1)" id="one"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">1
+                </p>
+                <p onclick="cal(2)" id="two"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">2
+                </p>
+                <p onclick="cal(3)" id="three"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">3
+                </p>
+                <p onclick="cal('+')" id="plus"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">+
+                </p>
+                <p onclick="cal(4)" id="four"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">4
+                </p>
+                <p onclick="cal(5)" id="five"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">5
+                </p>
+                <p onclick="cal(6)" id="six"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">6
+                </p>
+                <p onclick="cal('-')" id="neagtive"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">-
+                </p>
+                <p onclick="cal(7)" id="seven"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">7
+                </p>
+                <p onclick="cal(8)" id="eight"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">8
+                </p>
+                <p onclick="cal(9)" id="nine"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">9
+                </p>
+                <p onclick="cal('*')" id="multi"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">*
+                </p>
+                <p onclick="cal('.')" id="dott"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">.
+                </p>
+
+                <p onclick="cal(0)" id="zero"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">0
+                </p>
+
+
+                <p onclick="cal('/')" id="divied"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">/
+                </p>
+                <p id="equal"
+                    class="text-white bg-blue-600 text-center py-2 leading-none text-2xl rounded-md cursor-pointer">=
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // let one = document.getElementById("one")
+        // let two = document.getElementById("two")
+        // let three = document.getElementById("three")
+        // let four = document.getElementById("four")
+        // let five = document.getElementById("five")
+        // let six = document.getElementById("six")
+        // let seven = document.getElementById("seven")
+        // let eight = document.getElementById("eight")
+        // let nine = document.getElementById("nine")
+        // let zero = document.getElementById("zero")
+        // let plus = document.getElementById("plus")
+        // let neagtive = document.getElementById("neagtive")
+        // let multi = document.getElementById("multi")
+        // let divied = document.getElementById("divied")
+        let equal = document.getElementById("equal")
+        let allNumber = document.getElementById("allNumber")
+        let clear = document.getElementById("clear")
+        function cal(value) {
+            allNumber.innerHTML += value;
+        }
+        // one.addEventListener("click", function () {
+        //     allNumber.innerHTML += one.innerHTML.trim();
+        // })
+        // two.addEventListener("click", function () {
+        //     allNumber.innerHTML += two.innerHTML.trim();
+        // })
+        // three.addEventListener("click", function () {
+        //     allNumber.innerHTML += three.innerHTML.trim();
+        // })
+        // four.addEventListener("click", function () {
+        //     allNumber.innerHTML += four.innerHTML.trim();
+        // })
+        // five.addEventListener("click", function () {
+        //     allNumber.innerHTML += five.innerHTML.trim();
+        // })
+        // six.addEventListener("click", function () {
+        //     allNumber.innerHTML += six.innerHTML.trim();
+        // })
+        // seven.addEventListener("click", function () {
+        //     allNumber.innerHTML += seven.innerHTML.trim();
+        // })
+        // eight.addEventListener("click", function () {
+        //     allNumber.innerHTML += eight.innerHTML.trim();
+        // })
+        // nine.addEventListener("click", function () {
+        //     allNumber.innerHTML += nine.innerHTML.trim();
+        // })
+        // zero.addEventListener("click", function () {
+        //     allNumber.innerHTML += zero.innerHTML.trim();
+        // })
+        // plus.addEventListener("click", function () {
+        //     allNumber.innerHTML += plus.innerHTML.trim();
+        // })
+        // neagtive.addEventListener("click", function () {
+        //     allNumber.innerHTML += neagtive.innerHTML.trim();
+        // })
+        // multi.addEventListener("click", function () {
+        //     allNumber.innerHTML += multi.innerHTML.trim();
+        // })
+        // divied.addEventListener("click", function () {
+        //     allNumber.innerHTML += divied.innerHTML.trim();
+        // })
+        equal.addEventListener("click", function () {
+            allNumber.innerHTML = eval(allNumber.innerHTML.trim());
+        })
+        clear.addEventListener("click", function () {
+            allNumber.innerHTML = "";
+        })
+
+    </script>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

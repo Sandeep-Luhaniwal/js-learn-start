@@ -12,55 +12,87 @@
 
     <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
         <div
-            class="max-w-[450px] min-h-[390px] h-full relative w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+            class="max-w-[450px] min-h-[390px] h-full relative w-full px-3 bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-2">
             <p id="error"
                 class="text-xl hidden number absolute top-4 start-1/2 -translate-x-1/2 text-red-700 leading-none text-center font-semibold">
                 Already Number <span id="repeatNumber"></span>
             </p>
-            <h1 class="text-center text-6xl pb-4 font-semibold">Arry Counter</h1>
-            <p id="counter" class="text-[60px] number leading-none text-center font-semibold">0</p>
-            <div class="flex gap-4">
-                <button id="numbercount"
-                    class="mt-8 count_down py-3 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none hover:bg-blue-700 w-full">
-                    Number
-                </button>
-                <button id="save"
-                    class="mt-8 count_down py-3 text-3xl text-white bg-red-600 rounded-xl duration-300 leading-none hover:bg-blue-700 w-full">
-                    Save
-                </button>
+            <h1 class="text-center text-6xl pb-4 font-semibold">Accordion</h1>
+            <div class="bg-black bg-opacity-10 rounded-md">
+                <h2 id="accrodionHeading" class="p-2 bg-blue-600 text-white font-semibold cursor-pointer">Accordion 1
+                </h2>
+                <p id="accrodionConent" class="max-h-[150px] p-2 duration-300 overflow-hidden">Lorem ipsum dolor sit
+                    amet
+                    consectetur
+                    adipisicing elit. Nihil
+                    tenetur corporis eum,
+                    temporibus
+                    aperiam porro quaerat quasi unde
+                </p>
             </div>
-            <p id="print" class="text-[60px] hidden pt-4 number leading-none text-center font-semibold">0</p>
-
+            <div class="bg-black bg-opacity-10 rounded-md mt-2">
+                <h2 id="accrodionHeadingSecond" class="p-2 bg-blue-600 text-white font-semibold cursor-pointer">
+                    Accordion 2
+                </h2>
+                <p id="accrodionConentSecond" class="max-h-[0px] px-2 duration-300 overflow-hidden">Lorem ipsum dolor
+                    sit
+                    amet
+                    consectetur
+                    adipisicing elit. Nihil
+                    tenetur corporis eum,
+                    temporibus
+                    aperiam porro quaerat quasi unde
+                </p>
+            </div>
+            <div class="bg-black bg-opacity-10 rounded-md mt-2">
+                <h2 id="accrodionHeadingThird" class="p-2 bg-blue-600 text-white font-semibold cursor-pointer">
+                    Accordion 3
+                </h2>
+                <p id="accrodionConentThird" class="max-h-[0px] px-2 duration-300 overflow-hidden">Lorem ipsum dolor sit
+                    amet
+                    consectetur
+                    adipisicing elit. Nihil
+                    tenetur corporis eum,
+                    temporibus
+                    aperiam porro quaerat quasi unde
+                </p>
+            </div>
         </div>
     </div>
     <script>
-        let num = document.getElementById("numbercount");
-        let save = document.getElementById("save");
-        let counter = document.getElementById("counter");
-        let print = document.getElementById("print");
-        let error = document.getElementById("error");
-        let repeatNumber = document.getElementById("repeatNumber");
-        count = 0;
-        let arry = [];
-        num.addEventListener("click", function () {
-            count = count + 1;
-            counter.innerHTML = count;
-            error.style.display = "none";
-        })
-        save.addEventListener("click", function () {
-            print.style.display = "block";
-            if (!arry.includes(count)) {
-                arry.push(count);
-                print.innerHTML = arry.map((obj) => obj)
-                counter.innerHTML = 0;
-                count = 0;
-            } else {
-                error.style.display = "block";
-                repeatNumber.innerHTML = count;
-            }
+        let accordion = document.getElementById("accrodionHeading");
+        let accordionSecond = document.getElementById("accrodionHeadingSecond");
+        let accordionThird = document.getElementById("accrodionHeadingThird");
+        let accrodionConent = document.getElementById("accrodionConent");
+        let accrodionConentSecond = document.getElementById("accrodionConentSecond");
+        let accrodionConentThird = document.getElementById("accrodionConentThird");
+        accordion.addEventListener("click", function () {
+            accrodionConent.classList.toggle("max-h-[0px]");
+            accrodionConent.classList.toggle("py-0");
+            accrodionConentSecond.classList.remove("max-h-[150px]");
+            accrodionConentSecond.classList.remove("py-2");
+            accrodionConentThird.classList.remove("max-h-[150px]");
+            accrodionConentThird.classList.remove("py-2");
 
-            console.log(arry);
         })
+        accordionSecond.addEventListener("click", function () {
+            accrodionConentSecond.classList.toggle("max-h-[150px]");
+            accrodionConentSecond.classList.toggle("py-2");
+            accrodionConent.classList.add("max-h-[0px]");
+            accrodionConent.classList.add("py-0");
+            accrodionConent.classList.remove("max-h-[150px]");
+            accrodionConentThird.classList.remove("max-h-[150px]");
+            accrodionConentThird.classList.remove("py-2");
+        })
+        accordionThird.addEventListener("click", function () {
+            accrodionConentThird.classList.toggle("max-h-[150px]");
+            accrodionConentThird.classList.toggle("py-2");
+            accrodionConent.classList.add("max-h-[0px]");
+            accrodionConent.classList.add("py-0");
+            accrodionConentSecond.classList.remove("max-h-[150px]");
+            accrodionConentSecond.classList.remove("py-2");
+        })
+
     </script>
 
     <script type="module" src="/main.js"></script>

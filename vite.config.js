@@ -8,6 +8,8 @@ export default defineConfig({
                 main: resolve(__dirname, "index.html"),
                 counters: resolve(__dirname, "counters.html"),
                 accordion: resolve(__dirname, "accordion.html"),
+                calculator: resolve(__dirname, "calculator.html"),
+                tab: resolve(__dirname, "tab.html"),
             },
         },
     },

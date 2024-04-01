@@ -10,6 +10,7 @@ export default defineConfig({
                 accordion: resolve(__dirname, "accordion.html"),
                 calculator: resolve(__dirname, "calculator.html"),
                 tab: resolve(__dirname, "tab.html"),
+                texteditor: resolve(__dirname, "texteditor.html"),
             },
         },
     },

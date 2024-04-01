@@ -11,17 +11,133 @@
 <body>
 
     <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
-        <div
-            class="max-w-[450px] min-h-[390px] h-full relative w-full px-10 flex flex-col justify-center bg-white border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
-            <h1 class="text-center text-6xl pb-4 font-semibold">Text Editor</h1>
-            <p id="counter" class="text-[60px] number leading-none text-center font-semibold">0</p>
-           
-
+        <a class="absolute top-10 end-10 bg-red-700 hover:bg-black rounded-xl duration-500 text-3xl py-2 px-4 text-white"
+            href="/">Home</a>
+        <div class="max-w-[450px] mb-20 min-h-[390px] h-full relative w-full px-10 flex flex-col bg-white 
+            border border-black border-opacity-30 shadow-xl rounded-2xl py-10">
+            <h1 id="text" class="text-center pb-4 text-6xl font-semibold h-[70px] flex justify-center items-center">Text
+                Editor</h1>
+            <div class="relative">
+                <p id="selectcolor" class="p-2 rounded-md cursor-pointer border border-red-500">Select Color</p>
+                <div id="choosecolor"
+                    class="absolute p-2 border-green-600 border rounded-lg mt-1 bg-white z-10 hidden w-1/2 mx-auto">
+                </div>
+            </div>
+            <div class="relative mt-1">
+                <p id="selecttextsize" class="p-2 rounded-md cursor-pointer border border-red-500">Select size</p>
+                <div id="choosetextsize"
+                    class="absolute p-2 border-green-600 border rounded-lg mt-1 bg-white z-10 hidden w-1/2 mx-auto">
+                </div>
+            </div>
+            <div class="relative mt-1">
+                <p id="selectfontFamily" class="p-2 rounded-md cursor-pointer border border-red-500">Select Font Family
+                </p>
+                <div id="choosefontFamily"
+                    class="absolute p-2 border-green-600 border rounded-lg mt-1 bg-white z-10 hidden w-1/2 mx-auto">
+                </div>
+            </div>
+            <div class="relative mt-1">
+                <p id="selectfontWeight" class="p-2 rounded-md cursor-pointer border border-red-500">Select Font Weight
+                </p>
+                <div id="choosefontWeight"
+                    class="absolute p-2 border-green-600 border rounded-lg mt-1 bg-white z-10 hidden w-1/2 mx-auto">
+                </div>
+            </div>
         </div>
     </div>
-    
+    <script>
+        let selectcolor = document.getElementById("selectcolor");
+        let choosecolor = document.getElementById("choosecolor");
+        let selecttextsize = document.getElementById("selecttextsize");
+        let choosetextsize = document.getElementById("choosetextsize");
+        let selectfontFamily = document.getElementById("selectfontFamily");
+        let choosefontFamily = document.getElementById("choosefontFamily");
+        let selectfontWeight = document.getElementById("selectfontWeight");
+        let choosefontWeight = document.getElementById("choosefontWeight");
+        let text = document.getElementById("text");
+        const arry = ["red", "green", "blue", "orange", "gold"];
+        const size = ["16px", "24px", "30px", "36px", "48px", "64px"];
+        const family = ["Nunito", "Inter", "Roboto", "Mukta", "Workbench"];
+        const weight = ["300", "400", "500", "600", "700", "800", "900"];
+
+        choosecolor.innerHTML = arry.map((obj) => {
+            return ` <p onclick="color('${obj}')" class="text-base rounded-md cursor-pointer border border-red-500 hover:text-white hover:bg-black duration-300 w-full p-2 mt-1">${obj}</p>`
+        }).join("");
+        choosetextsize.innerHTML = size.map((obj) => {
+            return ` <p onclick="textsize('${obj}')" class="text-base rounded-md cursor-pointer border border-red-500 hover:text-white hover:bg-black duration-300 w-full p-2 mt-1">${obj}</p>`
+        }).join("");
+        choosefontFamily.innerHTML = family.map((obj) => {
+            return ` <p onclick="fontfamily('${obj}')" class="text-base rounded-md cursor-pointer border border-red-500 hover:text-white hover:bg-black duration-300 w-full p-2 mt-1">${obj}</p>`
+        }).join("");
+        choosefontWeight.innerHTML = weight.map((obj) => {
+            return ` <p onclick="fontweight('${obj}')" class="text-base rounded-md cursor-pointer border border-red-500 hover:text-white hover:bg-black duration-300 w-full p-2 mt-1">${obj}</p>`
+        }).join("");
+        selectcolor.addEventListener("click", function (event) {
+            choosecolor.classList.toggle("hidden");
+            event.stopPropagation();
+            choosetextsize.classList.add("hidden");
+            choosefontFamily.classList.add("hidden");
+            choosefontWeight.classList.add("hidden");
+        });
+        selecttextsize.addEventListener("click", function (event) {
+            choosetextsize.classList.toggle("hidden");
+            event.stopPropagation();
+            choosecolor.classList.add("hidden");
+            choosefontFamily.classList.add("hidden");
+            choosefontWeight.classList.add("hidden");
+        });
+        selectfontFamily.addEventListener("click", function (event) {
+            choosefontFamily.classList.toggle("hidden");
+            event.stopPropagation();
+            choosecolor.classList.add("hidden");
+            choosetextsize.classList.add("hidden");
+            choosefontWeight.classList.add("hidden");
+        });
+        selectfontWeight.addEventListener("click", function (event) {
+            choosefontWeight.classList.toggle("hidden");
+            event.stopPropagation();
+            choosecolor.classList.add("hidden");
+            choosefontFamily.classList.add("hidden");
+            choosetextsize.classList.add("hidden");
+        });
+        function color(val) {
+            selectcolor.innerHTML = val;
+            choosecolor.classList.add("hidden");
+            text.style.color = val;
+        }
+        function textsize(val) {
+            selecttextsize.innerHTML = val;
+            choosetextsize.classList.add("hidden");
+            text.style.fontSize = val;
+        }
+        function fontfamily(val) {
+            selectfontFamily.innerHTML = val;
+            choosefontFamily.classList.add("hidden");
+            text.style.fontFamily = val;
+            //    text.classList.add(val);
+        }
+        function fontweight(val) {
+            selectfontWeight.innerHTML = val;
+            choosefontWeight.classList.add("hidden");
+            text.style.fontWeight = val;
+            //    text.classList.add(val);
+        }
+        document.addEventListener("click", function () {
+            if (!choosecolor.classList.contains("hidden")) {
+                choosecolor.classList.add("hidden");
+            } else if (!choosetextsize.classList.contains("hidden")) {
+                choosetextsize.classList.add("hidden");
+            } else if (!choosefontFamily.classList.contains("hidden")) {
+                choosefontFamily.classList.add("hidden");
+            } else if (!choosefontWeight.classList.contains("hidden")) {
+                choosefontWeight.classList.add("hidden");
+            }
+        })
+    </script>
 
     <script type="module" src="/main.js"></script>
+
+
 </body>
 
 </html>

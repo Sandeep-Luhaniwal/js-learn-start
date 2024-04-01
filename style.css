@@ -1,6 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mukta:wght@200;300;400;500;600;700;800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Workbench&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Nunito {
+    font-family: "Nunito", sans-serif;
+}
+
+.Workbench {
+    font-family: "Workbench", sans-serif;
+}
+
+.Mukta {
+    font-family: "Mukta", sans-serif;
+}
+
+.Roboto {
+    font-family: "Roboto", sans-serif;
+}
+
+.Inter {
+    font-family: "Inter", sans-serif;
+}
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px red inset !important;

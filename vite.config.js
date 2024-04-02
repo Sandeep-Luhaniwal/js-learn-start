@@ -11,6 +11,7 @@ export default defineConfig({
                 calculator: resolve(__dirname, "calculator.html"),
                 tab: resolve(__dirname, "tab.html"),
                 texteditor: resolve(__dirname, "texteditor.html"),
+                task: resolve(__dirname, "task.html"),
             },
         },
     },

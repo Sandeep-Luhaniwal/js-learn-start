@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Learn</title>
+</head>
+
+<body>
+
+    <div class="max-w-[1400px] mx-auto p-4 min-h-screen flex justify-center items-center ">
+        <a class="absolute top-10 end-10 bg-red-700 hover:bg-black rounded-xl duration-500 text-3xl py-2 px-4 text-white"
+            href="/">Home</a>
+        <div class="max-w-[450px] mb-20 min-h-[390px] h-full relative w-full p-6 pt-2 flex flex-col bg-white 
+            border border-black  border-opacity-30 shadow-xl rounded-2xl ">
+            <h1 id="text1"
+                class="text-center pb-4 text-4xl text-nowrap md:text-6xl leading-none font-semibold flex justify-center items-center">
+                Task
+            </h1>
+            <div class="flex">
+                <input id="inputvalue" placeholder="add your task"
+                    class="border  border-black outline-none focus:outline-none border-opacity-40 rounded-xl px-3 py-2 text-xl w-full"
+                    type="text">
+                <button id="save"
+                    class="py-2 px-3 bg-blue-600 text-white text-xl rounded-xl hover:bg-black duration-300 ms-3">Save</button>
+            </div>
+            <p class="py-2 text-black text-opacity-50">Today's Task</p>
+            <div id="printvalue">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let inputvalue = document.getElementById("inputvalue");
+        let save = document.getElementById("save");
+        let printvalue = document.getElementById("printvalue");
+
+        let arry = [];
+        save.addEventListener("click", function () {
+
+            if (inputvalue.value !== "") {
+                arry.push(inputvalue.value);
+                printvalue.innerHTML = arry.map((obj) => {
+                    return ` <div
+                    class="flex gap-2 mt-2 justify-between p-2  border border-black  rounded-md border-opacity-20 hover:shadow-xl duration-300 w-full items-center">
+                    <p id="text"  class="text-base relative cursor-pointer text-xl">
+                        ${obj}
+                    </p>
+                    <div class="flex items-center gap-1">
+                        <svg onclick="text(this.parentNode.parentNode.querySelector('p'))" class="cursor-pointer group" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="group-hover:opacity-100 duration-300" opacity="0.5">
+                                <path
+                                    d="M12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2ZM12 20C7.589 20 4 16.411 4 12C4 7.589 7.589 4 12 4C16.411 4 20 7.589 20 12C20 16.411 16.411 20 12 20Z"
+                                    fill="black" />
+                                <path
+                                    d="M9.99909 13.587L7.70009 11.292L6.28809 12.708L10.0011 16.413L16.7071 9.70697L15.2931 8.29297L9.99909 13.587Z"
+                                    fill="black" />
+                            </g>
+                        </svg>
+                        <svg onclick="delte(this.parentNode.parentNode.querySelector('p'))" class="cursor-pointer group" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g class="group-hover:opacity-100 duration-300" opacity="0.5">
+                                <path
+                                    d="M5 20C5 20.5304 5.21071 21.0391 5.58579 21.4142C5.96086 21.7893 6.46957 22 7 22H17C17.5304 22 18.0391 21.7893 18.4142 21.4142C18.7893 21.0391 19 20.5304 19 20V8H21V6H17V4C17 3.46957 16.7893 2.96086 16.4142 2.58579C16.0391 2.21071 15.5304 2 15 2H9C8.46957 2 7.96086 2.21071 7.58579 2.58579C7.21071 2.96086 7 3.46957 7 4V6H3V8H5V20ZM9 4H15V6H9V4ZM8 8H17V20H7V8H8Z"
+                                    fill="black" />
+                                <path d="M9 10H11V18H9V10ZM13 10H15V18H13V10Z" fill="black" />
+                            </g>
+                        </svg>
+                    </div>
+
+                </div>`
+                }).join("");
+            }
+            inputvalue.value = "";
+
+        })
+
+
+        function text(abc) {
+            abc.classList.toggle("text-red-700")
+            abc.classList.toggle("position_line");
+        }
+
+        function delte(del) {
+            const value = del.textContent.trim();
+            const index = arry.indexOf(value);
+            if (index !== -1) {
+                arry.splice(index, 1);
+                del.parentNode.remove();
+            }
+        }
+    </script>
+
+    <script type="module" src="/main.js"></script>
+
+
+</body>
+
+</html>

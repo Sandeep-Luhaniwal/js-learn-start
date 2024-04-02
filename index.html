@@ -21,17 +21,33 @@
     <div
       class="max-w-[450px] w-full px-10 bg-white border min-h-[390px] h-full border-black border-opacity-30 shadow-xl rounded-2xl py-10 flex flex-col justify-center items-center">
       <h1 class="text-center text-6xl pb-4 font-semibold">Side Bar</h1>
-      <button id="buttonsidebar" class="px-3 py-2 bg-blue-600 text-white text-2xl md:text-3xl rounded-lg mt-10">Sidebar
+      <button id="buttonsidebar"
+        class="px-3 py-2 bg-blue-600 hover:bg-black duration-500 text-white text-2xl md:text-3xl rounded-lg mt-10">Sidebar
         Open</button>
+      <div id="overlay" class="fixed top-0 -start-full w-full h-full min-h-screen"></div>
       <div id="sidebar"
-        class="fixed top-0 duration-500 -start-full min-h-screen bg-black max-w-[300px] w-full flex flex-col gap-5 pe-5 ps-8">
-        <button id="closesidebar"
-          class="text-white bg-blue-600 m-5 py-2 px-10 rounded-xl text-3xl font-medium text-center">Close</button>
-        <a class="text-white underline text-3xl" href="/tab">Js Tab</a>
-        <a class="text-white underline text-3xl" href="/calculator">Calculator</a>
-        <a class="text-white underline text-3xl" href="/counters">Counters</a>
-        <a class="text-white underline text-3xl" href="/accordion">Accordion</a>
-        <a class="text-white underline text-3xl" href="/texteditor">Text Editor</a>
+        class="fixed top-0 duration-500 -start-full min-h-screen bg-[#57d7e8] max-w-[300px] w-full flex flex-col gap-1 pe-5 ps-8">
+
+        <div id="closesidebar" class="flex justify-end pt-3">
+          <svg class="cursor-pointer group w-10 h-10 duration-300" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="group-hover:fill-white duration-300"
+              d="M17.6569 16.2426L13.4142 12L17.6569 7.75735L16.2426 6.34313L12 10.5858L7.75736 6.34313L6.34315 7.75735L10.5858 12L6.34315 16.2426L7.75736 17.6568L12 13.4142L16.2426 17.6568L17.6569 16.2426Z"
+              fill="#000000" />
+          </svg>
+        </div>
+        <a class="text-black hover:bg-blue-700 px-4 py-2 duration-500 rounded-md w-full text-xl transition-all hover:text-white"
+          href="/tab">Js Tab</a>
+        <a class="text-black hover:bg-blue-700 px-4 py-2 duration-500 rounded-md w-full text-xl transition-all hover:text-white"
+          href="/calculator">Calculator</a>
+        <a class="text-black hover:bg-blue-700 px-4 py-2 duration-500 rounded-md w-full text-xl transition-all hover:text-white"
+          href="/counters">Counters</a>
+        <a class="text-black hover:bg-blue-700 px-4 py-2 duration-500 rounded-md w-full text-xl transition-all hover:text-white"
+          href="/accordion">Accordion</a>
+        <a class="text-black hover:bg-blue-700 px-4 py-2 duration-500 rounded-md w-full text-xl transition-all hover:text-white"
+          href="/texteditor">Text Editor</a>
+        <a class="text-black hover:bg-blue-700 px-4 py-2 duration-500 rounded-md w-full text-xl transition-all hover:text-white"
+          href="/task">Task</a>
       </div>
     </div>
     <!-- COUNT JS -->
@@ -166,11 +182,21 @@
     let buttonsidebar = document.getElementById("buttonsidebar");
     let sidebar = document.getElementById("sidebar");
     let closesidebar = document.getElementById("closesidebar");
+    let overlay = document.getElementById("overlay");
     buttonsidebar.addEventListener("click", function () {
       sidebar.style.left = "0";
+      overlay.style.left = "0";
+      document.body.classList.add("overflow-hidden");
     })
     closesidebar.addEventListener("click", function () {
       sidebar.style.left = "-320px";
+      overlay.style.left = "-100%";
+      document.body.classList.remove("overflow-hidden");
+    })
+    overlay.addEventListener("click", function () {
+      sidebar.style.left = "-320px";
+      overlay.style.left = "-100%";
+      document.body.classList.remove("overflow-hidden");
     })
 
   </script>

@@ -12,6 +12,7 @@ export default defineConfig({
                 tab: resolve(__dirname, "tab.html"),
                 texteditor: resolve(__dirname, "texteditor.html"),
                 task: resolve(__dirname, "task.html"),
+                quiz: resolve(__dirname, "quiz.html"),
             },
         },
     },

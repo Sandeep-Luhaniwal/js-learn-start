@@ -26,8 +26,8 @@
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px red inset !important;
-    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: black !important;
 
 }
 

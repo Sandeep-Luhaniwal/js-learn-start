@@ -19,9 +19,90 @@
                 class="text-center pb-4 text-4xl text-nowrap md:text-6xl font-semibold h-[70px] flex justify-center items-center">
                 Quiz App
             </h1>
+            <p class="text-xl font-semibold">1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, error
+                minus.</p>
+            <div class="flex flex-col gap-4 my-4">
+                <p id="one"
+                    class="border p-2 text-xl text-black rounded-xl hover:bg-blue-600 cursor-pointer duration-300 hover:text-white">
+                    a</p>
+                <p id="two"
+                    class="border p-2 text-xl text-black rounded-xl hover:bg-blue-600 cursor-pointer duration-300 hover:text-white">
+                    b</p>
+                <p id="three"
+                    class="border p-2 text-xl text-black rounded-xl hover:bg-blue-600 cursor-pointer duration-300 hover:text-white">
+                    c</p>
+                <p id="four"
+                    class="border p-2 text-xl text-black rounded-xl hover:bg-blue-600 cursor-pointer duration-300 hover:text-white">
+                    d</p>
+            </div>
 
+            <button id="result"
+                class="py-2 px-4 rounded-xl bg-blue-600 text-white font-bold text-xl hover:bg-black duration-300">Submit</button>
+            <p id="wrong" class="text-black text-3xl hidden pt-4">Your Answer Wrong</p>
+            <p id="right" class="text-black text-3xl hidden pt-4">Your Answer is Right</p>
         </div>
     </div>
+
+    <script>
+        let result = document.getElementById("result");
+        let wrong = document.getElementById("wrong");
+        let right = document.getElementById("right");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let four = document.getElementById("four");
+
+        result.addEventListener("click", function () {
+            if (one.classList.contains("bg-blue-700") || two.classList.contains("bg-blue-700") || four.classList.contains("bg-blue-700")) {
+                wrong.style.display = "flex";
+                right.style.display = "none";
+                
+            } else if (three.classList.contains("bg-blue-700")) {
+                wrong.style.display = "none";
+                right.style.display = "flex";
+                
+            }
+        });
+
+        one.addEventListener("click", function () {
+            one.classList.add("bg-blue-700", "text-white")
+            two.classList.remove("bg-blue-700", "text-white")
+            three.classList.remove("bg-blue-700", "text-white")
+            four.classList.remove("bg-blue-700", "text-white")
+            wrong.style.display = "none";
+            right.style.display = "none";
+            three.classList.remove('bg-green-600');
+        });
+
+        two.addEventListener("click", function () {
+            one.classList.remove("bg-blue-700", "text-white")
+            two.classList.add("bg-blue-700", "text-white")
+            three.classList.remove("bg-blue-700", "text-white")
+            four.classList.remove("bg-blue-700", "text-white")
+            wrong.style.display = "none";
+            right.style.display = "none";
+        });
+
+        three.addEventListener("click", function () {
+            one.classList.remove("bg-blue-700", "text-white")
+            two.classList.remove("bg-blue-700", "text-white")
+            three.classList.add("bg-blue-700", "text-white",)
+            four.classList.remove("bg-blue-700", "text-white")
+            wrong.style.display = "none";
+            right.style.display = "none";
+        });
+
+        four.addEventListener("click", function () {
+            one.classList.remove("bg-blue-700", "text-white")
+            two.classList.remove("bg-blue-700", "text-white")
+            three.classList.remove("bg-blue-700", "text-white")
+            four.classList.add("bg-blue-700", "text-white")
+            wrong.style.display = "none";
+            right.style.display = "none";
+        });
+    </script>
+
+
 
     <script type="module" src="/main.js"></script>
 

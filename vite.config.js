@@ -14,6 +14,7 @@ export default defineConfig({
                 task: resolve(__dirname, "task.html"),
                 quiz: resolve(__dirname, "quiz.html"),
                 quiz: resolve(__dirname, "paramstab.html"),
+                quiz: resolve(__dirname, "quizdone.html"),
             },
         },
     },

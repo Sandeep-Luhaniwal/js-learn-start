@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK-APP</title>
+    <meta name="title" content="Java Script Basics Practice" />
+    <meta name="description" content="Java Script Basics Practice Like Counter, Event Listeners, Calculator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://custom-tabs-daebf.web.app/" />
+    <meta property="og:title" content="Java Script Basics Practice" />
+    <meta property="og:description" content="Java Script Basics Practice Like Counter, Event Listeners, Calculator" />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://custom-tabs-daebf.web.app/" />
+    <meta property="twitter:title" content="Java Script Basics Practice" />
+    <meta property="twitter:description"
+        content="Java Script Basics Practice Like Counter, Event Listeners, Calculator" />
+    <meta property="twitter:image" content="/logo.png" />
+</head>
+
+<body>
+    <!-- ============== QUIZ APP ========= -->
+    <div class="flex items-center justify-center">
+        <div
+            class="bg-white max-w-[500px] w-full shadow-xl rounded-xl flex justify-center items-center flex-col gap-3 sm:p-10 p-5">
+            <h2 class="font-medium text-3xl font-mono text-center max-w-[300px] uppercase">
+                quiz app
+            </h2>
+            <div class="mb-7">
+                <h2 class="font-mono font-medium text-lg mb-6" id="quizquestion"></h2>
+                <div class="flex flex-col gap-2" id="quizoptions">
+                </div>
+            </div>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevQuestion()"
+                    class="text-center py-2 border-solid border border-blue-700 font-mono text-lg font-medium rounded-lg text-blue-700 hover:text-white hover:bg-blue-700 transition-all duration-300 max-w-[140px] w-full">
+                    Previous
+                </button>
+                <button onclick="nextQuestion()"
+                    class="text-center py-2 bg-blue-700 font-mono text-lg font-medium rounded-lg text-white max-w-[140px] w-full hover:opacity-80 transition-all duration-300">
+                    Next
+                </button>
+                <button onclick="submitQuiz()" id="submitButton"
+                    class="hidden text-center py-2 bg-green-500 font-mono text-lg font-medium rounded-lg text-white max-w-[140px] w-full hover:opacity-80 transition-all duration-300">Submit</button>
+                <button onclick="resetQuiz()" id="resetButton"
+                    class="hidden text-center py-2 bg-gray-500 font-mono text-lg font-medium rounded-lg text-white max-w-[140px] w-full hover:opacity-80 transition-all duration-300">Reset</button>
+            </div>
+            <div id="quizResult" class="hidden mt-5"></div>
+        </div>
+    </div>
+    <!-- ========== SCRIPT ======= -->
+    <script>
+        const quizData = [
+            {
+                question: "Q.1 Capital of Italy?",
+                options: ["Paris", "London", "Berlin", "Rome"],
+                answer: "Rome",
+            },
+            {
+                question: "Q.2 Where is the Taj Mahal?",
+                options: ["Agra", "Delhi", "Jaipur", "Up"],
+                answer: "Agra",
+            },
+            {
+                question: "Q.3 What is the ratio of our national flag?",
+                options: ["2:1", "4:9", "3:2", "9:2"],
+                answer: "3:2",
+            },
+            {
+                question: "Q.4 Who wrote 'Romeo and Juliet'?",
+                options: ["William Shakespeare", "Charles Dickens", "Jane Austen", "Leo Tolstoy"],
+                answer: "William Shakespeare",
+            },
+            {
+                question: "Q.5 What is the capital of France?",
+                options: ["Paris", "London", "Berlin", "Rome"],
+                answer: "Paris",
+            },
+            {
+                question: "Q.6 What is the Color of Parrot?",
+                options: ["Green", "White", "Both Of them", "None of the above"],
+                answer: "Both Of them",
+            },
+        ];
+        let currentQuestion = 0;
+        let score = 0;
+        const quizOptions = document.getElementById("quizoptions");
+        const navigationButtons = document.getElementById("navigationButtons");
+        const submitButton = document.getElementById("submitButton");
+        const resetButton = document.getElementById("resetButton");
+        const quizResult = document.getElementById("quizResult");
+        function displayQuestion() {
+            const questionData = quizData[currentQuestion];
+            document.getElementById("quizquestion").textContent = questionData.question;
+            quizOptions.innerHTML = questionData.options.map((option, index) => {
+                return `<p class="option px-3 font-mono font-medium text-lg border border-solid border-blue-700 rounded" onclick="checkAnswer(this, ${index})">${option}</p>`;
+            }).join("");
+        }
+        displayQuestion();
+        function checkAnswer(option, index) {
+            const selectedAnswer = quizData[currentQuestion].options[index];
+            const correctAnswer = quizData[currentQuestion].answer;
+            // Disable all options after selecting one
+            const options = quizOptions.querySelectorAll('.option');
+            options.forEach(opt => {
+                opt.onclick = null;
+            });
+            if (selectedAnswer === correctAnswer) {
+                option.style.backgroundColor = "green";
+                option.style.color = "white";
+                score++;
+            } else {
+                option.style.backgroundColor = "red";
+                option.style.color = "white";
+                for (let i = 0; i < options.length; i++) {
+                    if (quizData[currentQuestion].options[i] === correctAnswer) {
+                        options[i].style.backgroundColor = "green";
+                        options[i].style.color = "white";
+                        break;
+                    }
+                }
+            }
+            if (currentQuestion === quizData.length - 1) {
+                submitButton.classList.remove("hidden");
+                navigationButtons.classList.add("hidden");
+            }
+        }
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                displayQuestion();
+            }
+        }
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+        }
+        function submitQuiz() {
+            const totalQuestions = quizData.length;
+            const incorrectAnswers = totalQuestions - score;
+            const resultText = `You answered ${score} questions correctly out of ${totalQuestions}. ${incorrectAnswers} questions were answered incorrectly.`;
+            quizResult.textContent = resultText;
+            quizResult.classList.remove("hidden");
+            submitButton.disabled = true;
+            resetButton.classList.remove("hidden");
+        }
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            displayQuestion();
+            quizResult.classList.add("hidden");
+            submitButton.classList.add("hidden");
+            resetButton.classList.add("hidden");
+            submitButton.disabled = false;
+        }
+    </script>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
